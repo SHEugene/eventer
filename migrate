@@ -1,0 +1,68 @@
+var prompt = require('prompt');
+var childprocess = require('child_process');
+
+var options = {
+    command : 'migrate',
+    host : 'localhost',
+    port: null,
+    database: 'eventer',
+    username:'root',
+    password:'1111',
+    flywayCmd: 'flyway'
+
+};
+
+console.log('About to ' + options.command + ' ' + options.username + '@' + options.host + ':' + options.port + '/' + options.database);
+
+(async function thing () {
+    await runCommand(getPendingMigrations(), 'Checking database access');
+    const pendingMigrations = await runCommand(getPendingMigrations() + ' | grep Pending || true', 'Checking pending migrations');
+    if (!pendingMigrations) {
+        process.stdout.write('No pending migrations. exiting\n');
+        return;
+    }
+    process.stdout.write(`Pending migrations: \n${pendingMigrations}\n`);
+    const answer = await ask('Are you sure? (y/n)');
+    if (answer === 'y') {
+        await runCommand(getMigration(), 'Running migrations');
+    }
+})().catch((err) => {
+    if (err.message !== 'canceled') {
+        process.stderr.write(err.stack);
+    }
+});
+
+function getMigration () {
+    return `${options.flywayCmd} -url=jdbc:mysql://${options.host}:${options.port}/${options.database} -user=${options.username} -password=${options.password} -locations="filesystem:${__dirname}/../migrations/" -outOfOrder=${(options.outoforder ? 'true' : 'false')} ${options.command}`;
+}
+
+function getPendingMigrations () {
+    return `${options.flywayCmd} -url=jdbc:mysql://${options.host}:${options.port}/${options.database} -user=${options.username} -password=${options.password} -locations="filesystem:${__dirname}/../migrations/" -outOfOrder=${(options.outoforder ? 'true' : 'false')} info`;
+}
+
+function ask (question) {
+    return new Promise((resolve, reject) => {
+        prompt.start();
+        prompt.get([question], function (err, result) {
+            if (err) return reject(err);
+            resolve(result[question]);
+        });
+    });
+}
+
+function runCommand (cmd, waitText) {
+    process.stdout.write(waitText + ' ...');
+    return new Promise((resolve, reject) => {
+        childprocess.exec(cmd, function (err, stdout, stderr) {
+            if (err) {
+                return reject(err);
+            }
+            deleteLastStdoutLine();
+            return resolve(stdout);
+        });
+    });
+}
+
+function deleteLastStdoutLine () {
+    process.stdout.write('\r\x1b[K');
+}
