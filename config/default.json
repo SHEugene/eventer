@@ -1,5 +1,12 @@
 {
 	"defaultAddress": {
 		"port": "3015"
+	},
+	"database": {
+		"host":     "localhost",
+		"user":     "root",
+		"password": "",
+		"port":     null,
+		"database": "eventer"
 	}
 }
