@@ -8,5 +8,9 @@ module.exports = function () {
             hello:'true'
         });
     });
+	router.use(function notFound (req, res, next) {
+		res.status(404);
+		res.json({message: 'not found'});
+	});
     return router;
 };
