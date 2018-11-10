@@ -7,7 +7,7 @@ module.exports = {
 			//registration with email
 			if(type === authorisationType.EMAIL) {
 
-				const alreadyRegistered= await  userController.findUserByEmail(email);
+				const alreadyRegistered = await  userController.findUserByEmail(email);
 				if(!alreadyRegistered){
 					return processRegistrationFromEmail(name, email,password);
 				} else {
