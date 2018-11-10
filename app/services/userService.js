@@ -6,6 +6,10 @@ module.exports = {
 				email:email
 			}
 		});
+	},
+
+	create:function (attributes) {
+		return User.create(attributes);
 	}
 };
 

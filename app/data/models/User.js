@@ -7,13 +7,7 @@ module.exports = function (sequelize, DataTypes) {
 					notEmpty:true
 				}
 		},
-			surname: {
-			type: DataTypes.STRING,
-			allowNull:false,
-			validate: {
-				notEmpty:true
-			}
-		},
+			surname: DataTypes.STRING,
 			email: {
 			type: DataTypes.STRING,
 			allowNull:false,
@@ -27,6 +21,9 @@ module.exports = function (sequelize, DataTypes) {
 			profilePhotoS3Key:DataTypes.STRING,
 			DOB:DataTypes.DATE,
 			authorisationType:DataTypes.ENUM('EMAIL','GOOGLE')
-	});
+	}, {
+		tableName:'User'
+		}
+	);
 	return User;
 }
