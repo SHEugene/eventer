@@ -1,5 +1,5 @@
 const  authorisationType = require('../data/enums/authorizationType');
-const userController= require('../services/userService');
+const userService= require('../services/userService');
 const  bcrypt = require('bcrypt');
 module.exports = {
 	registration : async function (name,email, password, type) {
@@ -7,11 +7,11 @@ module.exports = {
 			//registration with email
 			if(type === authorisationType.EMAIL) {
 
-				const alreadyRegistered = await  userController.findUserByEmail(email);
+				const alreadyRegistered = await  userService.findUserByEmail(email);
 				if(!alreadyRegistered){
 					return processRegistrationFromEmail(name, email,password);
 				} else {
-					throw createError('This email already registered', 400)
+					throw createError('This email already registered', 401)
 				}
 
 
@@ -19,7 +19,28 @@ module.exports = {
 				return  processRegistrationFromGoogle(email,name, type);
 			}
 		} else {
-			throw createError('Name or Email not exist', 400)
+			throw createError('Name or Email not exist', 401)
+		}
+	},
+	login : async function (email, password, type) {
+		if(email) {
+
+			if(type === authorisationType.EMAIL) {
+
+				const user = await userService.findUserByEmail(email);
+
+				if(user) {
+					return processLoginFromEmail(user, password);
+				} else {
+					throw createError('User not registered', 401)
+				}
+
+			} else if(type === authorisationType.GOOGLE) {
+
+			}
+
+		} else {
+			throw  createError('No email exist', 401);
 		}
 	}
 }
@@ -28,18 +49,27 @@ function processRegistrationFromEmail (name, email,password) {
 	if(password) {
 		const  salt = bcrypt.genSaltSync(10);
 		const passwordToSave = bcrypt.hashSync(password, salt);
-		return userController.create({
+		return userService.create({
 			name:name,
 			email:email,
 			password: passwordToSave
 		});
 	}else {
-		throw createError('Password not exist', 400)
+		throw createError('Password not exist', 401)
 	}
 }
 
 function processRegistrationFromGoogle (email,name) {
 
+}
+
+function processLoginFromEmail (user, password) {
+	if(bcrypt.compareSync(password,user.password)) {
+		delete  user.dataValues.password;
+		return user;
+	} else {
+		throw createError('Combination login and password not finded',401)
+	}
 }
 
 function createError (message, status) {

@@ -1,5 +1,6 @@
 const createRouter = require('express').Router;
 const router = createRouter({ strict: true });
+const _ = require('lodash');
 const userController = require('../controllers/userController');
 
 
@@ -28,7 +29,24 @@ module.exports = function () {
 
 
 	});
-	router.use(function notFound (req, res, next) {
+	router.post('/login', async function (req, res, next) {
+		const email  = req.body.email;
+		const password = req.body.password;
+		const type = req.body.type;
+		try {
+			const user = await userController.login(email, password,type);
+			res.json(user.dataValues);
+		} catch (e) {
+			console.log(e);
+			res.status(e.status ? e.status : 500);
+			res.json({
+				error:true,
+				message:e.message
+			});
+		}
+	})
+
+    router.use(function notFound (req, res, next) {
 		res.status(404);
 		res.json({message: 'not found'});
 	});
