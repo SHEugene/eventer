@@ -1,4 +1,4 @@
-const  authorisationType = require('../data/enums/autorisationType');
+const  authorisationType = require('../data/enums/authorizationType');
 const userController= require('../services/userService');
 const  bcrypt = require('bcrypt');
 module.exports = {

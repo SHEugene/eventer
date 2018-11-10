@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
 			country:DataTypes.STRING,
 			profilePhotoS3Key:DataTypes.STRING,
 			DOB:DataTypes.DATE,
-			authorisationType:DataTypes.ENUM('EMAIL','GOOGLE')
+			authorizationType:DataTypes.ENUM('EMAIL','GOOGLE')
 	}, {
 		tableName:'User'
 		}

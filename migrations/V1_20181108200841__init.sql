@@ -8,7 +8,7 @@ CREATE TABLE `User` (
 	`profilePhotoS3Key` varchar(255) DEFAULT NULL,
 	`country` nvarchar(255) DEFAULT NULL,
 	`DOB` date DEFAULT NULL,
-	`authorisationType` enum('EMAIL','GOOGLE') DEFAULT 'EMAIL',
+	`authorizationType` enum('EMAIL','GOOGLE') DEFAULT 'EMAIL',
 	`createdAt` datetime DEFAULT NULL,
 	`updatedAt` datetime DEFAULT NULL,
 	PRIMARY KEY (`id`)
