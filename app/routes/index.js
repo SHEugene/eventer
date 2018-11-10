@@ -3,10 +3,8 @@ var router = createRouter({ strict: true });
 
 
 module.exports = function () {
-    router.get('/login', function (req, res, next) {
-        return res.json({
-            hello:'true'
-        });
+    router.post('/registration', function (req, res, next) {
+
     });
 	router.use(function notFound (req, res, next) {
 		res.status(404);
