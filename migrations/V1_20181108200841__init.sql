@@ -1,13 +1,15 @@
 CREATE TABLE `User` (
 	`id` int (11) NOT NULL AUTO_INCREMENT,
-	`name` varchar(255) NOT NULL,
-	`surname` varchar(255) NOT NULL,
+	`name` nvarchar(255) NOT NULL,
+	`surname` nvarchar(255) DEFAULT NULL,
 	`email` varchar(255) NOT NULL,
 	`password` varchar(255) DEFAULT NULL,
-	`city` varchar(255) DEFAULT NULL,
+	`city` nvarchar(255) DEFAULT NULL,
 	`profilePhotoS3Key` varchar(255) DEFAULT NULL,
-	`country` varchar(255) DEFAULT NULL,
+	`country` nvarchar(255) DEFAULT NULL,
 	`DOB` date DEFAULT NULL,
-	`authorisationType` enum('EMAIL','GOOGLE') DEFAULT 'EMAIL',
+	`authorizationType` enum('EMAIL','GOOGLE') DEFAULT 'EMAIL',
+	`createdAt` datetime DEFAULT NULL,
+	`updatedAt` datetime DEFAULT NULL,
 	PRIMARY KEY (`id`)
 );
