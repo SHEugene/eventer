@@ -1,18 +1,25 @@
-var path = require('path');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
 	entry: './app/public-src/index.jsx',
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, './dist')
 	},
 	module: {
 		rules: [
 			{
-				test: /.jsx?$/,
-				loader: 'babel-loader',
+				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
+				loader: 'babel-loader',
+				options: {
+					presets: ['react-hmre']
+				}
 			}
 		]
 	},
+	resolve: {
+		extensions: ['*', '.js', '.jsx']
+	}
 };
