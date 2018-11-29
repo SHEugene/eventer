@@ -1,10 +1,10 @@
 import 'babel-polyfill'
 import React from 'react';
-import render from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import  {Router,IndexRedirect} from 'react-router';
+import  {Router,IndexRedirect,browserHistory} from 'react-router';
 import routes from './routes'
-render(
-	<div>Hello</div>,
+ReactDOM.render(
+	<Router history={browserHistory} routes={routes}/>,
 	document.getElementById('app')
 );
