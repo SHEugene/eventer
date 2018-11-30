@@ -1,15 +1,15 @@
 const User = require('../data/models').User;
+
 module.exports = {
-	findUserByEmail: function (email) {
-		return User.find({
-			where:{
-				email:email
-			}
-		});
-	},
+  findUserByEmail(email) {
+    return User.find({
+      where: {
+        email,
+      },
+    });
+  },
 
-	create:function (attributes) {
-		return User.create(attributes);
-	}
+  create(attributes) {
+    return User.create(attributes);
+  },
 };
-

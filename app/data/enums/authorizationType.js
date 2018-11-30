@@ -1,4 +1,4 @@
 module.exports = {
-	EMAIL : "EMAIL",
-	GOOGLE: "GOOGLE"
-}
+  EMAIL: 'EMAIL',
+  GOOGLE: 'GOOGLE',
+};

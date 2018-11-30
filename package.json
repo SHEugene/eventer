@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -p",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "eslint": "echo '=> linting' && node_modules/.bin/eslint --ext .js --ext .jsx .",
+    "eslint:fix": "echo '=> fixing lint' && node_modules/.bin/eslint --ext .js --ext .jsx --fix ."
   },
   "repository": {
     "type": "git",
@@ -45,6 +47,11 @@
     "babel-register": "^6.24.1",
     "babel-runtime": "^6.23.0",
     "css-loader": "^1.0.1",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "node-sass": "^4.10.0",
     "react-hot-loader": "^4.3.12",
