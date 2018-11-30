@@ -15,10 +15,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/public', express.static(path.join(__dirname, 'public'), { maxAge: 3600 * 24 }));
 app.use('/api', routes);
 app.use((req, res) => {
-  res.send(renderFullPage());
+	res.send(renderFullPage());
 });
 function renderFullPage() {
-  return `
+	return `
     <!doctype html>
     <html>
       <head>
@@ -34,5 +34,5 @@ function renderFullPage() {
 }
 
 app.listen(port, () => {
-  console.log(`Server running in ${port}`);
+	console.log(`Server running in ${port}`);
 });

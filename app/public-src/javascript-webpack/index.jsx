@@ -10,7 +10,7 @@ const history = createBrowserHistory()
 const  store = createEventerStore();
 console.log(store);
 ReactDOM.render(
-	<Provider store={store}>
+	<Provider store = {store}>
 		<Router history={history} children={routes}>
 		</Router>
 	</Provider>,

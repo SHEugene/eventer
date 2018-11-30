@@ -1,8 +1,8 @@
 const sinon = require('sinon');
 
 beforeEach(function () {
-  this.sandbox = sinon.sandbox.create();
+	this.sandbox = sinon.sandbox.create();
 });
 afterEach(function () {
-  this.sandbox.restore();
+	this.sandbox.restore();
 });
