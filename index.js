@@ -12,7 +12,7 @@ var routes = require('./app/routes/index')();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/public', express.static(path.join(__dirname, 'public'), { maxAge: 3600 * 24 }));
-
+app.use('/api', routes);
 app.use(function (req, res) {
     res.send(renderFullPage());
 })
@@ -22,6 +22,7 @@ function renderFullPage() {
     <html>
       <head>
         <title>server side</title>
+        <link href="public/main.css" rel="stylesheet">
       </head>
       <body>
         <div id="app"></div>

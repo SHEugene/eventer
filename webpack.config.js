@@ -1,8 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+const  ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-	entry: './app/public-src/index.jsx',
+	entry:['./app/public-src/javascript-webpack/index.jsx', './app/public-src/scss/main.scss'],
 	mode: 'development',
 	output: {
 		filename: 'bundle.js',
@@ -17,10 +18,17 @@ module.exports = {
 				options: {
 					presets: ['react']
 				}
+			},
+			{
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract(['css-loader','sass-loader'])
 			}
 		]
 	},
 	resolve: {
 		extensions: ['*', '.js', '.jsx']
-	}
+	},
+	plugins: [
+		new ExtractTextPlugin('main.css')
+	],
 };

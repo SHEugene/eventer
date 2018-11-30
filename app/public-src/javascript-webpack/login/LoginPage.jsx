@@ -1,17 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux'
-
-class Main extends  React.Component {
-
-
+import  {FormGroup, FormControl} from 'react-bootstrap';
+class LoginPage extends  React.Component {
 	constructor (props) {
 		super(props);
 	}
-
 	render() {
-		console.log('q= '+this.props.q);
 		return (
-			<div>Hello</div>
+			<div className='red' >
+Hello
+			</div>
 		);
 	}
 }
@@ -22,4 +20,4 @@ export  default connect(
 			q: state
 		}
 	}
-)(Main);
+)(LoginPage);
