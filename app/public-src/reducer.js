@@ -1,14 +1,17 @@
 import { createStore } from 'redux'
-function playlist(state = [], action) {
-	if (action.type === 'ADD_TRACK') {
-		return [
-			...state,
-			action.payload
-		];
+
+
+function createEventerStore () {
+ const q =	function (state = [], action) {
+		if (action.type === 'ADD_TRACK') {
+			return [
+				...state,
+				action.payload
+			];
+		}
+		return state;
 	}
-	return state;
+	return createStore(q);
 }
 
-const store = createStore(playlist);
-
-export  default store;
+export  default createEventerStore;
