@@ -1,14 +1,14 @@
-import 'babel-polyfill'
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import  {Router,Route} from 'react-router';
+import  {Router} from 'react-router';
 import {createBrowserHistory} from 'history';
-import {Provider} from 'react-redux'
+import {Provider} from 'react-redux';
 import routes from './routes';
 import createEventerStore from './reducer';
-const history = createBrowserHistory()
+const history = createBrowserHistory();
 const  store = createEventerStore();
-console.log(store);
+
 ReactDOM.render(
 	<Provider store = {store}>
 		<Router history={history} children={routes}>

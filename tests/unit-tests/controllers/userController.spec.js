@@ -18,8 +18,8 @@ describe('registration', () => {
 			name: 'Mike',
 			email: 'mike@gmail.com',
 		});
-		 await userController.registration(name, email, password, type);
-		 userService.findUserByEmail.should.be.calledOnce();
+		await userController.registration(name, email, password, type);
+		userService.findUserByEmail.should.be.calledOnce();
 	});
 	it('should be throw exception (no name) ', async function () {
 		const name = null;
@@ -90,7 +90,6 @@ describe('login', () => {
 		result.dataValues.name.should.be.equal(name);
 	});
 	it('should throw exception (email not exist)', async function () {
-		const name = 'Mike';
 		const password = '132132132';
 		const email = null;
 		const type = authorizationType.EMAIL;
@@ -102,20 +101,19 @@ describe('login', () => {
 		});
 		this.sandbox.stub(bcrypt, 'compareSync').returns(true);
 
-		 await userController.login(email, password, type).catch((err) => {
+		await userController.login(email, password, type).catch((err) => {
 			err.message.should.be.equal('No email exist');
 			err.status.should.be.equal(401);
 		});
 	});
 	it('should throw exception (not registered)', async function () {
-		const name = 'Mike';
 		const password = '132132132';
 		const email = 'mike@gmail.com';
 		const type = authorizationType.EMAIL;
 		this.sandbox.stub(userService, 'findUserByEmail').returns(false);
 		this.sandbox.stub(bcrypt, 'compareSync').returns(true);
 
-		 await userController.login(email, password, type).catch((err) => {
+		await userController.login(email, password, type).catch((err) => {
 			err.message.should.be.equal('User not registered');
 			err.status.should.be.equal(401);
 		});

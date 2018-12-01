@@ -1,7 +1,9 @@
 module.exports = {
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+		"browser": true,
+		"mocha" : true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -24,6 +26,7 @@ module.exports = {
             "error",
             "tab"
         ],
+		'no-console': 'off',
         "linebreak-style": [
             "error",
             "unix"
@@ -35,6 +38,9 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
-    }
+        ],
+		"react/jsx-uses-react": "error",
+	    "react/jsx-uses-vars": "error",
+    },
+	"parser": "babel-eslint",
 };

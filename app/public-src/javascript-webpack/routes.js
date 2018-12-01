@@ -1,6 +1,6 @@
 import React from 'react';
 import  {Route} from 'react-router';
-import  LoginPage from './login/LoginPage'
+import  LoginPage from './login/LoginPage';
 
 
 const routes = (
