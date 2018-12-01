@@ -4,7 +4,7 @@ import  App from './Authorisation/App';
 
 const routes = (
 	<div>
-		<Route path='/login' component={App}  />
+		<Route path='/' component={App}/>
 	</div>
 );
 export default routes;

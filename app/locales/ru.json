@@ -1,6 +1,9 @@
 {
   "login_page.welcome.header" : "Добро пожаловать в Eventer",
   "login_page.enter_email.placeholder" : "Введите емаил ...",
+  "login_page.enter_name.placeholder" : "Введите имя ...",
+  "login_page.enter_surname.placeholder" : "Введите фамиилю ...",
   "login_page.enter_password.placeholder" : "Введите пароль ...",
+  "login_page.confirm_password.placeholder" : "Повторите пароль ...",
   "login_page.login.button" : "Войти"
 }
