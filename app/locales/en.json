@@ -1,0 +1,6 @@
+{
+  "login_page.welcome.header" : "Welcome to the Eventer",
+  "login_page.enter_email.placeholder" : "Enter email ...",
+  "login_page.enter_password.placeholder" : "Enter password ...",
+  "login_page.login.button" : "Log in"
+}

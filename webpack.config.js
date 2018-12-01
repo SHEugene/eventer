@@ -30,4 +30,7 @@ module.exports = {
 	plugins: [
 		new ExtractTextPlugin('main.css'),
 	],
+	node: {
+		fs: 'empty'
+	}
 };
