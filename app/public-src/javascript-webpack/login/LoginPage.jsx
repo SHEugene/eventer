@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
+import {FormGroup, FormControl, PageHeader, Button} from 'react-bootstrap';
 class LoginPage extends  React.Component {
 	constructor (props) {
 		super(props);
@@ -8,10 +8,18 @@ class LoginPage extends  React.Component {
 	render() {
 		return (
 			<form className='container'>
+				<PageHeader className='row d-flex justify-content-center'>
+						Welcome to the Eventer
+				</PageHeader>
 				<FormGroup className='row'>
-					<ControlLabel className='col-lg-5'>Email</ControlLabel>
-					<FormControl type='input' placeholder='Enter your email '/>
+					<FormControl className='col-md-6 offset-md-3' type='input' placeholder='Enter your email '/>
 				</FormGroup>
+				<FormGroup  className='row'>
+					<FormControl className='col-md-6 offset-md-3' type='password' placeholder='Enter your password'/>
+				</FormGroup>
+				<div className='row'>
+					<Button className='col-md-2 offset-md-5' type="submit">Log in</Button>
+				</div>
 			</form>
 		);
 	}
