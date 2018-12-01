@@ -71,7 +71,7 @@ describe('registration', () => {
 	});
 });
 describe('login', () => {
-	it('should success login', async function () {
+	it('should success Authorisation', async function () {
 		const name = 'Mike';
 		const password = '132132132';
 		const email = 'mike@gmail.com';
@@ -118,7 +118,7 @@ describe('login', () => {
 			err.status.should.be.equal(401);
 		});
 	});
-	it('should throw exception (not login)', async function () {
+	it('should throw exception (not Authorisation)', async function () {
 		const password = '132132132';
 		const email = 'mike@gmail.com';
 		const type = authorizationType.EMAIL;
@@ -131,7 +131,7 @@ describe('login', () => {
 		this.sandbox.stub(bcrypt, 'compareSync').returns(false);
 
 		await userController.login(email, password, type).catch((err) => {
-			err.message.should.be.equal('Combination login and password not finded');
+			err.message.should.be.equal('Combination Authorisation and password not finded');
 			err.status.should.be.equal(401);
 		});
 	});

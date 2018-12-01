@@ -24,7 +24,7 @@ module.exports = function () {
 			});
 		}
 	});
-	router.post('/login', async (req, res) => {
+	router.post('/Authorisation', async (req, res) => {
 		const email = req.body.email;
 		const password = req.body.password;
 		const type = req.body.type;

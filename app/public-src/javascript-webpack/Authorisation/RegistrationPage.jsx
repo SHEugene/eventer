@@ -9,9 +9,6 @@ class LoginPage extends  React.Component {
 	render() {
 		return (
 			<form className='container'>
-				<PageHeader className='row d-flex justify-content-center'>
-					{i18n.__('login_page.welcome.header')}
-				</PageHeader>
 				<FormGroup className='row'>
 					<FormControl className='col-md-6 offset-md-3' type='input' placeholder={i18n.__('login_page.enter_email.placeholder')}/>
 				</FormGroup>

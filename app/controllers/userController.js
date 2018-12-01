@@ -61,7 +61,7 @@ function processLoginFromEmail(user, password) {
 		delete user.dataValues.password;
 		return user;
 	}
-	throw createError('Combination login and password not finded', 401);
+	throw createError('Combination Authorisation and password not finded', 401);
 }
 
 function createError(message, status) {

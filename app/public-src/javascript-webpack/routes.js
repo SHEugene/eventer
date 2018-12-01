@@ -1,11 +1,10 @@
 import React from 'react';
 import  {Route} from 'react-router';
-import  LoginPage from './login/LoginPage';
-
+import  App from './Authorisation/App';
 
 const routes = (
 	<div>
-		<Route path='/login' component={LoginPage} />
+		<Route path='/login' component={App}  />
 	</div>
 );
 export default routes;
