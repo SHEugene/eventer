@@ -11,7 +11,7 @@ class  App extends React.Component {
 					{i18n.__('login_page.welcome.header')}
 				</PageHeader>
 				<div className='col-md-6 offset-md-3'>
-					<TabBar links={[
+					<TabBar style={{marginBottom:'7px'}} links={[
 						{
 							link : '/login',
 							title : i18n.__('login_page.login.tab')

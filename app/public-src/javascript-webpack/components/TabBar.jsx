@@ -8,8 +8,7 @@ class TabBar extends  React.Component{
 	render () {
 		const links = this.props.links;
 		return (
-			
-			<div className='nav nav-pills nav-fill'>
+			<div className='nav nav-pills nav-fill' style={this.props.style}>
 				{_.map(links, (link)=>(<Tab  tab={link} key={link.title}/>))}
 			</div>
 		);
@@ -18,6 +17,7 @@ class TabBar extends  React.Component{
 
 TabBar.propTypes = {
 	links:  PropTypes.array,
+	style: PropTypes.object
 };
 
 export  default TabBar;

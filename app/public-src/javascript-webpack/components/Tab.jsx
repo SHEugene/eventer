@@ -4,11 +4,11 @@ import  { Link } from 'react-router-dom';
 
 class  Tab extends  React.Component {
 	render () {
-		console.log(this.props.tab.link);
 		const  tab = this.props.tab;
+		const isActive = window.location.pathname === tab.link;
 		return (
-			<Link className='nav-item' to={tab.link}>
-				<div className='nav-link'>
+			<Link className='nav-item' to={tab.link} style={{ textDecoration:'none'}}>
+				<div className={isActive ? 'nav-link active' : 'nav-link' }>
 					{tab.title}
 				</div>
 			</Link>
