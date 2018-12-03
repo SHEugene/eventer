@@ -14,11 +14,11 @@ class  App extends React.Component {
 					<TabBar links={[
 						{
 							link : '/login',
-							title : 'Login'
+							title : i18n.__('login_page.login.tab')
 						},
 						{
 							link : '/registration',
-							title : 'Register'
+							title : i18n.__('login_page.registration.tab')
 						}
 					]}/>
 				</div>

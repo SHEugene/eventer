@@ -9,7 +9,7 @@ class TabBar extends  React.Component{
 		const links = this.props.links;
 		return (
 			
-			<div className='nav nav-tabs'>
+			<div className='nav nav-pills nav-fill'>
 				{_.map(links, (link)=>(<Tab  tab={link} key={link.title}/>))}
 			</div>
 		);

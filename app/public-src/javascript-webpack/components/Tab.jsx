@@ -8,7 +8,9 @@ class  Tab extends  React.Component {
 		const  tab = this.props.tab;
 		return (
 			<Link className='nav-item' to={tab.link}>
-				{tab.title}
+				<div className='nav-link'>
+					{tab.title}
+				</div>
 			</Link>
 		);
 	}

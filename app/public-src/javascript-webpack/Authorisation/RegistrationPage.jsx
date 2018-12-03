@@ -10,7 +10,7 @@ class LoginPage extends  React.Component {
 		return (
 			<form className='container'>
 				<FormGroup className='row'>
-					<FormControl className='col-md-3 offset-md-3' type='input' placeholder={i18n.__('login_page.enter_name.placeholder')}/>
+					<FormControl className='col-md-3 offset-md-3' style={{marginRight:'3px'}} type='input' placeholder={i18n.__('login_page.enter_name.placeholder')}/>
 					<FormControl className='col-md-3 ' type='input' placeholder={i18n.__('login_page.enter_surname.placeholder')}/>
 				</FormGroup>
 				<FormGroup className='row'>

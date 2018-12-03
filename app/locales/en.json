@@ -5,5 +5,7 @@
   "login_page.enter_surname.placeholder" : "Enter surname ...",
   "login_page.enter_password.placeholder" : "Enter password ...",
   "login_page.confirm_password.placeholder" : "Confirm password ...",
-  "login_page.login.button" : "Log in"
+  "login_page.login.button" : "Log in",
+  "login_page.login.tab" : "Login",
+  "login_page.registration.tab" : "Registration"
 }

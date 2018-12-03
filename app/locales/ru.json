@@ -5,5 +5,7 @@
   "login_page.enter_surname.placeholder" : "Введите фамиилю ...",
   "login_page.enter_password.placeholder" : "Введите пароль ...",
   "login_page.confirm_password.placeholder" : "Повторите пароль ...",
-  "login_page.login.button" : "Войти"
+  "login_page.login.button" : "Войти",
+  "login_page.login.tab" : "Войти",
+  "login_page.registration.tab" : "Регистрация"
 }
